@@ -1,0 +1,9 @@
+{
+  "name": "Monos_store",
+  "version": "1",
+  "description": "\"Tienda los monos\"",
+  "main": "index.js",
+  "repository": "https://github.com/LuisMurillo93/Monos.git",
+  "author": "LuisMuriñllo93 <murillo.luis@correounivalle.edu.co>",
+  "license": "MIT"
+}
