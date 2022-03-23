@@ -5,5 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/LuisMurillo93/Monos.git",
   "author": "LuisMuriñllo93 <murillo.luis@correounivalle.edu.co>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.7"
+  }
 }
