@@ -1,12 +1,12 @@
 import { Schema, model } from "mongoose";
 
 interface Cliente{
-    Documento: string,
+    Documento: string, 
     Nombre: string,
     Telefono: string,
     Correo: string,
     Almacenes: number,
-}
+};
 
 const clienteSchema = new Schema<Cliente>({
     Documento: {
