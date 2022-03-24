@@ -5,7 +5,7 @@ const conectarDB = async () => {
         "mongodb+srv://Dante:dantesco93@monosdb.lda2a.mongodb.net/Tienda?retryWrites=true&w=majority"
     )
     .then(() =>{
-        console.log('Conexsión exxitosa')
+        console.log('Conexión exitosa')
     })
     .catch((e) => {
         console.error('Error al conectar a la db', e);
