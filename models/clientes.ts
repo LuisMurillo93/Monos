@@ -1,5 +1,10 @@
 import { Schema, model } from "mongoose";
 
+var validateEmail = function(email) {
+    var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return re.test(email)
+};
+
 interface Cliente{
     Documento: string, 
     Nombre: string,
@@ -26,7 +31,9 @@ const clienteSchema = new Schema<Cliente>({
     Correo: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        validate: [validateEmail, 'Por favor ingresa un email valido'],
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Por favor ingresa un email valido']
     },
     Almacenes: {
         type: Number,
@@ -35,6 +42,6 @@ const clienteSchema = new Schema<Cliente>({
 
 });
 
-const clientesModel = model("Clientes", clienteSchema);
+const clientesModel = model("Cliente", clienteSchema);
 
-export default clientesModel;
+export { clientesModel };

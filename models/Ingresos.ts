@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-interface Bodega{
+interface Ingreso{
     Origen: string,
     Fecha_ingreso: Date,
     prendas: string,
@@ -9,7 +9,7 @@ interface Bodega{
     valor_flete: number,
 };
 
-const IngresoSchema = new Schema<Bodega>({
+const IngresoSchema = new Schema<Ingreso>({
     Origen:{
         type: String,
         required: true,
@@ -36,6 +36,6 @@ const IngresoSchema = new Schema<Bodega>({
     }
 });
 
-const bodegaModel = model("Bodega", IngresoSchema);
+const ingresoModel = model("Ingreso", IngresoSchema);
 
-export default bodegaModel;
+export default ingresoModel;

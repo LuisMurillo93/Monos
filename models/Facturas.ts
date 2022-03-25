@@ -1,10 +1,11 @@
 import { Schema, model } from "mongoose";
+import { enum_estado_pago } from "./enumerators";
 
 interface facturas{
     Cliente: string,
     Despacho: string,
     fecha_corte: Date,
-    estado_pago: Enumerator,
+    estado_pago: enum_estado_pago,
 }
 
 const FacturasSchema = new Schema<facturas>({
@@ -21,8 +22,9 @@ const FacturasSchema = new Schema<facturas>({
         required: true,
     },
     estado_pago:{
-        type: Enumerator,
+        type: String,
         required: true,
+        enum: enum_estado_pago
     }
 });
 

@@ -5,10 +5,10 @@ const main = async () => {
     await conectarDB();
 
     await clientesModel.create({
-        Documento: "1234567",
-        Nombre: "Pepe Le Pu",
-        Telefono: "1234567",
-        Correo: "Pepe@verguer.com",
+        Documento: "12345679",
+        Nombre: "Juan Claudio",
+        Telefono: "12345679",
+        Correo: "draco0923@hotmail.com",
         Almacenes: 1,
     })
     .then((u) => {

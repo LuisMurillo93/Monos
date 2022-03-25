@@ -1,7 +1,9 @@
 import { Schema, model } from "mongoose";
+import { enum_tipo_factura } from "./enumerators"
+import { clientesModel } from "./clientes"
 
 interface Despachos{
-    tipo_factura: Enumerator,
+    tipo_factura: enum_tipo_factura,
     prendas: string,
     cantidades: number,
     valor_unitario: number,
@@ -14,8 +16,9 @@ interface Despachos{
 
 const DespachoSchema = new Schema<Despachos>({
     tipo_factura:{
-        type: Enumerator,
+        type: String,
         required: true,
+        enum: enum_tipo_factura
     },
     prendas:{
         type: String,
@@ -47,6 +50,6 @@ const DespachoSchema = new Schema<Despachos>({
     }
 });
 
-const DespachosModel = model("Despachos", DespachoSchema);
+const DespachosModel = model("Despacho", DespachoSchema);
 
 export default DespachosModel;
