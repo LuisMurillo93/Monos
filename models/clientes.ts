@@ -10,7 +10,6 @@ interface Cliente{
     Nombre: string,
     Telefono: string,
     Correo: string,
-    Almacenes: number,
 };
 
 const clienteSchema = new Schema<Cliente>({
@@ -34,12 +33,7 @@ const clienteSchema = new Schema<Cliente>({
         unique: true,
         validate: [validateEmail, 'Por favor ingresa un email valido'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Por favor ingresa un email valido']
-    },
-    Almacenes: {
-        type: Number,
-        required: true
-    }
-
+    },    
 });
 
 const clientesModel = model("Cliente", clienteSchema);

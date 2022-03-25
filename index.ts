@@ -1,23 +1,25 @@
-import conectarDB from './db/db';
-import clientesModel from './models/clientes';
+import  express  from "express";
+import  cors  from "cors";
+import { ApolloServer } from "apollo-server-express";
+import dotenv from "dotenv";
+import { conectarDB } from "./db/db"
 
-const main = async () => {
+dotenv.config();
+
+const server = new ApolloServer({
+    typeDefs: "",
+    resolvers: "",
+});
+
+const app = express();
+
+app.use(cors());
+
+app.listen( {port: process.env.PORT}, async () => {
     await conectarDB();
+    await server.start();
 
-    await clientesModel.create({
-        Documento: "12345679",
-        Nombre: "Juan Claudio",
-        Telefono: "12345679",
-        Correo: "draco0923@hotmail.com",
-        Almacenes: 1,
-    })
-    .then((u) => {
-        console.log("Cliente creado", u);
-    })
-    .catch((e) => {
-        console.error("Error al crear al cliente", e)
-    });
-};
+    server.applyMiddleware({ app });
 
-main();
-
+    console.log("Servidor listo");
+});
