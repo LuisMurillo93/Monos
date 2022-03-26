@@ -1,9 +1,7 @@
 import { connect } from 'mongoose';
 
 const conectarDB = async () => {
-    return await connect(
-        "mongodb+srv://Dante:dantesco93@monosdb.lda2a.mongodb.net/Tienda?retryWrites=true&w=majority"
-    )
+    return await connect(process.env.DATABASE_URL)
     .then(() =>{
         console.log('Conexión exitosa')
     })
@@ -12,6 +10,6 @@ const conectarDB = async () => {
     });
 };
 
-export default conectarDB;
+export { conectarDB };
 
 
