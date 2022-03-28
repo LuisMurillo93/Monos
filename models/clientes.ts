@@ -20,7 +20,6 @@ const clienteSchema = new Schema<Cliente>({
     Nombre: {
         type: String,
         required: true,
-        unique: true
     },
     Telefono: {
         type: String,

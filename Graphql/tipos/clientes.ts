@@ -11,11 +11,11 @@ const clienteType = gql`
     }
 
     type query {
-        Clientes: [Cliente]
+        CClientes: [Cliente]
     }
 
     type mutation {
-        crear usuario(
+        crearCliente(
             Documento: String!,
             Nombre: String!,
             Telefono: String!,
