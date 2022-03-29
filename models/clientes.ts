@@ -6,27 +6,27 @@ var validateEmail = function(email) {
 };
 
 interface Cliente{
-    Documento: string, 
-    Nombre: string,
-    Telefono: string,
-    Correo: string,
+    documento: string, 
+    nombre: string,
+    telefono: string,
+    correo: string,
 };
 
 const clienteSchema = new Schema<Cliente>({
-    Documento: {
+    documento: {
         type: String,
         required: true
     },
-    Nombre: {
+    nombre: {
         type: String,
         required: true,
     },
-    Telefono: {
+    telefono: {
         type: String,
         required: true,
         unique: true
     },
-    Correo: {
+    correo: {
         type: String,
         required: true,
         unique: true,

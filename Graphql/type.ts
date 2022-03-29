@@ -3,15 +3,15 @@ import { gql } from 'apollo-server-express';
 
 const TypeDefs = gql`
     type cliente {
-        -id: ID!
-        Documento: String!
-        Nombre: String!
-        Telefono: String!
-        Correo: String!
+        _id: ID!
+        documento: String!
+        nombre: String!
+        telefono: String!
+        correo: String!
     }
 
     type Query {
-        Clientes: [cliente]
+        BClientes: [cliente]
     }
 `;
 

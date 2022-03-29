@@ -11,7 +11,7 @@ const clienteType = gql`
     }
 
     type query {
-        CClientes: [Cliente]
+        Con_Clientes: [Cliente]
     }
 
     type mutation {

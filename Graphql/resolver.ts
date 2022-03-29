@@ -3,9 +3,9 @@ import { clientesModel } from '../models/clientes';
 
 const Resolver = {
     Query: {
-        Clientes: async (parent, args) => {
-            const clientes = await clientesModel.find();
-            return clientes;            
+        BClientes: async (parent, args) => {
+            const cliente = await clientesModel.find();
+            return cliente;            
         },
     }, 
 };
