@@ -15,7 +15,8 @@ interface Cliente{
 const clienteSchema = new Schema<Cliente>({
     documento: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
     },
     nombre: {
         type: String,
