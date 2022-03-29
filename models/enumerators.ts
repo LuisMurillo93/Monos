@@ -1,12 +1,12 @@
 enum enum_tipo_factura {
-    tipo_1= "Tipo 1",
-    tipo_2= "Tipo 2"
+    TIPO1= "TIPO1",
+    TIPO2= "TIPO2"
 };
 
 enum enum_estado_pago {
-    Pagado = "Pagado",
-    Debe = "Debe",
-    Abono = "Abono",
+    PAGADO = "PAGADO",
+    DEBE = "DEBE",
+    ABONO = "ABONO",
 };
 
 export {enum_tipo_factura, enum_estado_pago};

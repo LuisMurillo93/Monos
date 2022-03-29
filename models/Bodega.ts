@@ -1,22 +1,22 @@
 import { Schema, model } from "mongoose";
 
 interface Bodega{
-    Prenda: string,
-    Referencia: string,
-    Cantidad: number,
+    prenda: string,
+    referencia: string,
+    cantidad: number,
 };
 
 
 const bodegaSchema = new Schema<Bodega>({
-    Prenda:{
+    prenda:{
         type:String,
         required: true
     },
-    Referencia:{
+    referencia:{
         type: String,
         required: true,
     },
-    Cantidad:{
+    cantidad:{
         type: Number,
         required: true
     }
@@ -25,4 +25,4 @@ const bodegaSchema = new Schema<Bodega>({
 
 const bodegaModel = model("Bodega", bodegaSchema, "bodega");
 
-export default bodegaModel;
+export { bodegaModel };

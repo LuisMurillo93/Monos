@@ -1,20 +1,21 @@
 import { Schema, model } from "mongoose";
 
 interface Ingreso{
-    Origen: string,
-    Fecha_ingreso: Date,
+    origen: string,
+    fecha_ingreso: Date,
     prendas: string,
     cantidades: number,
+    referencia: string,
     valor_compra: number,
     valor_flete: number,
 };
 
 const IngresoSchema = new Schema<Ingreso>({
-    Origen:{
+    origen:{
         type: String,
         required: true,
     },
-    Fecha_ingreso:{
+    fecha_ingreso:{
         type: Date,
         required: true,
     },
@@ -25,6 +26,10 @@ const IngresoSchema = new Schema<Ingreso>({
     cantidades:{
         type: Number,
         required: true,
+    },
+    referencia:{
+        type: String,
+        required: true
     },
     valor_compra:{
         type: Number,
@@ -38,4 +43,4 @@ const IngresoSchema = new Schema<Ingreso>({
 
 const ingresoModel = model("Ingreso", IngresoSchema);
 
-export default ingresoModel;
+export { ingresoModel };

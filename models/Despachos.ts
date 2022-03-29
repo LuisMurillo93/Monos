@@ -60,4 +60,4 @@ const DespachoSchema = new Schema<Despachos>({
 
 const DespachosModel = model("Despacho", DespachoSchema);
 
-export default DespachosModel;
+export { DespachosModel} ;

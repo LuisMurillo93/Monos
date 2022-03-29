@@ -1,23 +1,24 @@
 import { clientesModel } from '../../models/clientes';
 
-const clienteResolver = {
+
+const resolverCliente = {
     Query: {
-        Con_Clientes: async (parents, args) => {
-            const clientes = await clientesModel.find();
-            return clientes;
+        BClientes: async (parent, args) => {
+            const cliente = await clientesModel.find();
+            return cliente;            
         },
     },
     Mutation: {
         crearCliente: async (parent, args) => {
-            const clienteCreado = await clientesModel.create({
-                Documento: args.Documento,
-                Nombre: args.Nombre,
-                Telefono: args.Telefono,
-                Correo: args.Correo,
+            const nuevoCliente = await clientesModel.create({
+                documento: args.documento,
+                nombre: args.nombre,
+                correo: args.correo,
+                telefono: args.telefono,
             });
-            return clienteCreado;
-        }
-    }
+            return nuevoCliente;
+        },
+    }, 
 };
 
-export { clienteResolver };
+export { resolverCliente };

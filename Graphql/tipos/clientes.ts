@@ -1,28 +1,27 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express';
 
 
-const clienteType = gql`
-    type Cliente {
-        -id: ID!
-        Documento: String!
-        Nombre: String!
-        Telefono: String!
-        Correo: String!
+const TypeCliente = gql`
+    type cliente {
+        _id: ID!
+        documento: String!
+        nombre: String!
+        telefono: String!
+        correo: String!
     }
 
-    type query {
-        Con_Clientes: [Cliente]
+    type Query {
+        BClientes: [cliente]
     }
 
-    type mutation {
+    type Mutation {
         crearCliente(
-            Documento: String!,
-            Nombre: String!,
-            Telefono: String!,
-            Correo: String!,
-        )
-
+            documento: String!
+            nombre: String!
+            telefono: String!
+            correo: String!
+        ): cliente 
     }
 `;
 
-export { clienteType };
+export  { TypeCliente };
