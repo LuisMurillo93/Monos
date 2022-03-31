@@ -4,7 +4,12 @@ import { DespachosModel } from '../../models/Despachos';
 const resolverDespacho = {
     Query: {
         BDespacho: async (parent, args) => {
-            const despacho = await DespachosModel.find().populate('almacen');
+            const despacho = await DespachosModel.find().populate({
+                path: 'almacen', 
+                populate: {
+                    path: 'cliente'
+                }
+            });
             return despacho;            
         },
     },
