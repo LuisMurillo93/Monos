@@ -25,7 +25,7 @@ const TypeIngreso = gql`
             referencia: String!
             valor_compra: Float!
             valor_flete: Float!
-        ): almacen 
+        ): ingreso 
     }
 `;
 

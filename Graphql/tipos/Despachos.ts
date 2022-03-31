@@ -20,7 +20,7 @@ const TypeDespacho = gql`
         cantidades: Int!
         valor_unitario: Float!
         valor_Total: Float!
-        almacen: ID!
+        almacen: almacen!
         fecha_despacho: Date!
         estado_pago:enum_estado_pago!
         fecha_corte: Date!
@@ -38,11 +38,11 @@ const TypeDespacho = gql`
             cantidades: Int!
             valor_unitario: Float!
             valor_Total: Float!
-            almacen: ID!
+            almacen: String!
             fecha_despacho: Date!
             estado_pago:enum_estado_pago!
             fecha_corte: Date!
-        ): almacen 
+        ): despacho 
     }
 `;
 

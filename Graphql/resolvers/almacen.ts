@@ -3,9 +3,15 @@ import { almacenModel } from '../../models/almacen';
 
 const resolverAlmacen = {
     Query: {
-        BAlmacen: async (parent, args) => {
-            const almacen = await almacenModel.find();
+        BAlmacenes: async (parent, args) => {
+            const almacen = await almacenModel.find().populate('cliente');
             return almacen;            
+        },
+        BAlmacen: async (parent, args) => {
+            const almacen = await almacenModel.findOne({
+                _id: args._id,
+            }).populate('cliente');
+            return almacen;
         },
     },
     Mutation: {

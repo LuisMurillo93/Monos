@@ -7,11 +7,22 @@ const TypeAlmacen = gql`
         direccion: String!
         telefono: String!
         nombre: String!
-        cliente: ID!
+        cliente: cliente!
+    }
+
+    input inAlmacen {
+        _id: ID!
+        ciudad: String
+        direccion: String
+        telefono: String
+        nombre: String
+        cliente: inCliente
     }
 
     type Query {
-        BAlmacen: [almacen]
+        BAlmacenes: [almacen]
+        BAlmacen(_id: String!): almacen
+
     }
 
     type Mutation {
