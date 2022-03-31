@@ -12,6 +12,9 @@ const TypeCliente = gql`
 
     type Query {
         BClientes: [cliente]
+        BCliente(
+            _id: String!
+        ): cliente
     }
 
     type Mutation {
@@ -20,7 +23,19 @@ const TypeCliente = gql`
             nombre: String!
             telefono: String!
             correo: String!
-        ): cliente 
+        ): cliente
+
+        editarCliente(
+            _id: String!
+            documento: String!
+            nombre: String!
+            telefono: String!
+            correo: String!
+        ): cliente
+
+        eliminarCliente(_id: String!):cliente
+
+
     }
 `;
 

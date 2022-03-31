@@ -1,24 +1,8 @@
-import { clientesModel } from '../models/clientes';
+import { resolverAlmacen } from './resolvers/almacen';
+import { resolverBodega } from './resolvers/Bodega';
+import { resolverCliente } from './resolvers/clientes';
+import { resolverDespacho } from './resolvers/Despachos';
+import { resolverIngreso } from './resolvers/Ingresos';
 
-
-const Resolver = {
-    Query: {
-        BClientes: async (parent, args) => {
-            const cliente = await clientesModel.find();
-            return cliente;            
-        },
-    },
-    Mutation: {
-        crearCliente: async (parent, args) => {
-            const nuevoCliente = await clientesModel.create({
-                documento: args.documento,
-                nombre: args.nombre,
-                correo: args.correo,
-                telefono: args.telefono,
-            });
-            return nuevoCliente;
-        },
-    }, 
-};
-
-export { Resolver };
+export const Resolver = [resolverAlmacen, resolverBodega, resolverCliente,
+resolverDespacho, resolverIngreso];

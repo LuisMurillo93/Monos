@@ -20,7 +20,7 @@ const TypeAlmacen = gql`
             direccion: String!
             telefono: String!
             nombre: String!
-            cliente: ID!
+            cliente: String!
         ): almacen 
     }
 `;

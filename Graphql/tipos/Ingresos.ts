@@ -6,10 +6,10 @@ const TypeIngreso = gql`
         origen: String!
         fecha_ingreso: Date!
         prendas: String!
-        cantidades: String!
+        cantidades: Int!
         referencia: String!
-        valor_compra: Number!
-        valor_flete: Number!
+        valor_compra: Float!
+        valor_flete: Float!
     }
 
     type Query {
@@ -21,10 +21,10 @@ const TypeIngreso = gql`
             origen: String!
             fecha_ingreso: Date!
             prendas: String!
-            cantidades: String!
+            cantidades: Int!
             referencia: String!
-            valor_compra: Number!
-            valor_flete: Number!
+            valor_compra: Float!
+            valor_flete: Float!
         ): almacen 
     }
 `;

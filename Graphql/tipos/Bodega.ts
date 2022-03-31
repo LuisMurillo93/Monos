@@ -5,7 +5,7 @@ const TypeBodega = gql`
         _id: ID!
         prenda: String!
         referencia: String!
-        cantidad: String!
+        cantidad: Int!
     }
 
     type Query {
@@ -16,7 +16,7 @@ const TypeBodega = gql`
         crearBodega(
             prenda: String!
             referencia: String!
-            cantidad: String!
+            cantidad: Int!
         ): bodega 
     }
 `;
