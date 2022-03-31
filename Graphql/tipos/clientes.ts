@@ -8,14 +8,7 @@ const TypeCliente = gql`
         nombre: String!
         telefono: String!
         correo: String!
-    }
-
-    input inCliente {
-        _id: ID!
-        documento: String!
-        nombre: String!
-        telefono: String!
-        correo: String!   
+        almacenes: [almacen]
     }
 
     type Query {

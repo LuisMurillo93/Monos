@@ -36,8 +36,18 @@ const almacenSchema = new Schema<Almacenes>({
         ref: clientesModel
     }
 
+},{
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true}
+
 });
 
+almacenSchema.virtual('despachos', {
+    ref: 'Despacho',
+    localField: '_id',
+    foreignField: 'almacen'
+    
+});
 
 const almacenModel = model("Almacen", almacenSchema);
 

@@ -8,16 +8,9 @@ const TypeAlmacen = gql`
         telefono: String!
         nombre: String!
         cliente: cliente!
+        despachos: [despacho]
     }
 
-    input inAlmacen {
-        _id: ID!
-        ciudad: String
-        direccion: String
-        telefono: String
-        nombre: String
-        cliente: inCliente
-    }
 
     type Query {
         BAlmacenes: [almacen]

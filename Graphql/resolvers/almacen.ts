@@ -4,13 +4,14 @@ import { almacenModel } from '../../models/almacen';
 const resolverAlmacen = {
     Query: {
         BAlmacenes: async (parent, args) => {
-            const almacen = await almacenModel.find().populate('cliente');
+            const almacen = await almacenModel.find().populate('cliente').
+            populate('despachos');
             return almacen;            
         },
         BAlmacen: async (parent, args) => {
             const almacen = await almacenModel.findOne({
                 _id: args._id,
-            }).populate('cliente');
+            }).populate('cliente').populate('despachos');
             return almacen;
         },
     },

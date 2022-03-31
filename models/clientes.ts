@@ -34,6 +34,16 @@ const clienteSchema = new Schema<Cliente>({
         validate: [validateEmail, 'Por favor ingresa un email valido'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Por favor ingresa un email valido']
     },    
+},{
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true}
+
+});
+
+clienteSchema.virtual('almacenes',{
+    ref: "Almacen",
+    localField: "_id",
+    foreignField: "cliente"
 });
 
 const clientesModel = model("Cliente", clienteSchema);

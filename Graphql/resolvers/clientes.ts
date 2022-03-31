@@ -4,13 +4,13 @@ import { clientesModel } from '../../models/clientes';
 const resolverCliente = {
     Query: {
         BClientes: async (parent, args) => {
-            const cliente = await clientesModel.find();
+            const cliente = await clientesModel.find().populate('almacenes');
             return cliente;            
         },
         BCliente: async (parent, args) => {
             const cliente = await clientesModel.findOne({
                 _id: args._id
-            });
+            }).populate('almacenes');
             return cliente;
         },
     },
