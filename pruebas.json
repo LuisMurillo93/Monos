@@ -1,0 +1,44 @@
+mutation {
+    crearIngreso(
+      origen: "",
+      fecha_ingreso: "",
+      prendas: [{
+        tipo: "camisa",
+        referencia: "básica",
+        cantidades: 5,
+        valor_unitario: 10000,
+      }],
+      valor_flete: 600,  
+    ) {
+      origen
+    }
+  }
+
+
+  mutation {
+    crearDespacho(
+      tipo_factura: TIPO1,
+      valor_Total: 40000,
+      almacen:"624609a403c8d71f224b35e8",
+      fecha_despacho: "01-02-21",
+      estado_pago: DEBE,
+      fecha_corte: "02-02-21",
+      prendas: [{
+        tipo: "Jean",
+        referencia: "Caro",
+        cantidades: 9,
+        valor_unitario: 20000,
+      },
+      {
+        tipo: "sudadera",
+        referencia: "ligera",
+        cantidades: 4,
+        valor_unitario: 12000,
+      },]
+      ) {
+        almacen {
+          nombre
+        }
+        tipo_factura
+      }
+  }

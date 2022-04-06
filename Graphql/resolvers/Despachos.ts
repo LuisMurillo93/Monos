@@ -1,6 +1,7 @@
 import { DespachosModel } from '../../models/Despachos';
 
 
+
 const resolverDespacho = {
     Query: {
         BDespacho: async (parent, args) => {
@@ -9,7 +10,7 @@ const resolverDespacho = {
                 populate: {
                     path: 'cliente'
                 }
-            });
+            }).populate('almacen');
             return despacho;            
         },
     },
@@ -18,13 +19,10 @@ const resolverDespacho = {
             const nuevoDespacho = await DespachosModel.create({
                 tipo_factura: args.tipo_factura,
                 prendas: args.prendas,
-                cantidades: args.cantidades,
-                valor_unitario: args.valor_unitario,
-                valor_Total: args.valor_Total,
                 almacen: args.almacen,
-                fecha_despacho: args.fecha_despacho,
+                fecha_despacho: Date.now(),
                 estado_pago: args.estado_pago,
-                fecha_corte: args.fecha_corte,
+                fecha_corte: Date.now() + 30,
             });
             return nuevoDespacho;
         },

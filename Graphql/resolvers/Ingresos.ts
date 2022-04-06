@@ -14,9 +14,6 @@ const resolverIngreso = {
                 origen: args.origen,
                 fecha_ingreso: args.fecha_ingreso,
                 prendas: args.prendas,
-                cantidades: args.cantidades,
-                referencia: args.referencia,
-                valor_compra: args.valor_compra,
                 valor_flete: args.valor_flete,            });
             return nuevoIngreso;
         },

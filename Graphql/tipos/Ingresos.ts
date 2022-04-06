@@ -5,10 +5,8 @@ const TypeIngreso = gql`
         _id: ID!
         origen: String!
         fecha_ingreso: Date!
-        prendas: String!
-        cantidades: Int!
-        referencia: String!
-        valor_compra: Float!
+        prendas: [prendaDespacho]!
+        valor_compra: Float
         valor_flete: Float!
     }
 
@@ -20,10 +18,7 @@ const TypeIngreso = gql`
         crearIngreso(
             origen: String!
             fecha_ingreso: Date!
-            prendas: String!
-            cantidades: Int!
-            referencia: String!
-            valor_compra: Float!
+            prendas: [inPrendaDespacho]!
             valor_flete: Float!
         ): ingreso 
     }
