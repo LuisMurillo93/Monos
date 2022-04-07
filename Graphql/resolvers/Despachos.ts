@@ -1,5 +1,5 @@
 import { DespachosModel } from '../../models/Despachos';
-
+import { bodegaModel } from '../../models/Bodega';
 
 
 const resolverDespacho = {
@@ -25,6 +25,18 @@ const resolverDespacho = {
                 fecha_despacho: date,
                 fecha_corte: ndate.setDate(ndate.getDate() + 30),
             });
+            let len = args.prendas.length;
+            for (let i = 0; i < len; i++) {
+                const despacharBodega = await bodegaModel.findOneAndUpdate({
+                    tipo: args.prendas[i].tipo,
+                    referencia: args.prendas[i].referencia
+                }, {
+                    $inc: {
+                        cantidades: -args.prendas[i].cantidades,
+                    }
+                },
+                { upsert: true, setDefaultsOnInsert: true });
+            };
             return nuevoDespacho;
         },
     }, 

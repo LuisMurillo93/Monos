@@ -18,7 +18,8 @@ const bodegaSchema = new Schema<Bodega>({
     },
     cantidades:{
         type: Number,
-        required: true
+        required: true,
+        min: 0,
     },
 });
 
