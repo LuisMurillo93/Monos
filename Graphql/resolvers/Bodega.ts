@@ -8,16 +8,6 @@ const resolverBodega = {
             return bodega;            
         },
     },
-    Mutation: {
-        crearBodega: async (parent, args) => {
-            const nuevaBodega = await bodegaModel.create({
-                prenda: args.prenda,
-                referencia: args.referencia,
-                cantidad: args.cantidad,
-            });
-            return nuevaBodega;
-        },
-    }, 
 };
 
 export { resolverBodega };

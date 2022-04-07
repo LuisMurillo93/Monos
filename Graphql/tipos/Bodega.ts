@@ -3,22 +3,16 @@ import { gql } from "apollo-server-express";
 const TypeBodega = gql`
     type bodega {
         _id: ID!
-        prenda: String!
+        tipo: String!
         referencia: String!
-        cantidad: Int!
+        cantidades: Int!
+        valor_unitario: Float!
     }
 
     type Query {
         BBodega: [bodega]
     }
 
-    type Mutation {
-        crearBodega(
-            prenda: String!
-            referencia: String!
-            cantidad: Int!
-        ): bodega 
-    }
 `;
 
 export  { TypeBodega };

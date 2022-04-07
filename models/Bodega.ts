@@ -1,14 +1,15 @@
 import { Schema, model } from "mongoose";
 
 interface Bodega{
-    prenda: string,
+    tipo: string,
     referencia: string,
-    cantidad: number,
+    cantidades: number,
+    valor_unitario: number
 };
 
 
 const bodegaSchema = new Schema<Bodega>({
-    prenda:{
+    tipo:{
         type:String,
         required: true
     },
@@ -16,9 +17,13 @@ const bodegaSchema = new Schema<Bodega>({
         type: String,
         required: true,
     },
-    cantidad:{
+    cantidades:{
         type: Number,
         required: true
+    },
+    valor_unitario:{
+        type: Number,
+        required: true,
     }
 
 })

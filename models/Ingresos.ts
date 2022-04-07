@@ -29,7 +29,17 @@ const IngresoSchema = new Schema<Ingreso>({
         valor_unitario: {type: Number, required: true},
     }],
     valor_compra:{
-        type: Number
+        type: Number,
+        default: function() {
+            let len = this.prendas.length;
+            let sum = 0;
+            for (let i = 0; i < len; i++) {
+                sum = sum + this.prendas[i].cantidades*this.prendas[i].valor_unitario;
+        
+            };
+            return sum;
+        
+        },
     },
     valor_flete:{
         type: Number,

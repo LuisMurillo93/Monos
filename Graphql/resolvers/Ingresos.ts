@@ -12,7 +12,7 @@ const resolverIngreso = {
         crearIngreso: async (parent, args) => {
             const nuevoIngreso = await ingresoModel.create({
                 origen: args.origen,
-                fecha_ingreso: args.fecha_ingreso,
+                fecha_ingreso: Date.now(),
                 prendas: args.prendas,
                 valor_flete: args.valor_flete,            });
             return nuevoIngreso;

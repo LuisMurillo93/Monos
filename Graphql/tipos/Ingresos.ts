@@ -17,7 +17,6 @@ const TypeIngreso = gql`
     type Mutation {
         crearIngreso(
             origen: String!
-            fecha_ingreso: Date!
             prendas: [inPrendaDespacho]!
             valor_flete: Float!
         ): ingreso 

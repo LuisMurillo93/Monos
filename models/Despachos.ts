@@ -18,7 +18,7 @@ interface Despachos{
     fecha_despacho: Date,
     estado_pago: enum_estado_pago,
     fecha_corte: Date,
-
+    abono: number,
 }
 
 const DespachoSchema = new Schema<Despachos>({
@@ -36,10 +36,10 @@ const DespachoSchema = new Schema<Despachos>({
     valor_total:{
         type: Number,
         default: function() {
-            let len = this.prendas;
+            let len = this.prendas.length;
             let sum = 0;
             for (let i = 0; i < len; i++) {
-                sum = sum + this.prendas[i].cantidades*this.prendas[i].valor_unitario
+                sum = sum + this.prendas[i].cantidades*this.prendas[i].valor_unitario;
         
             };
             return sum;
@@ -58,13 +58,17 @@ const DespachoSchema = new Schema<Despachos>({
     },
     estado_pago:{
         type: String,
-        required: true,
+        default: enum_estado_pago.DEBE,
         enum: enum_estado_pago
     },
     fecha_corte:{
         type: Date,
         required: true,
-    }
+    },
+    abono:{
+        type: Number,
+        default: 0,
+    },
 });
 
 const DespachosModel = model("Despacho", DespachoSchema);

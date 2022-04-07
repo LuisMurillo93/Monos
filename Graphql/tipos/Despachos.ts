@@ -31,11 +31,12 @@ const TypeDespacho = gql`
         _id: ID!
         tipo_factura: enum_tipo_factura!
         prendas: [prendaDespacho]!
-        valor_Total: Float
+        valor_total: Float
         almacen: almacen!
         fecha_despacho: Date!
         estado_pago:enum_estado_pago!
         fecha_corte: Date!
+        abono: Float!
 
     }
 
@@ -48,7 +49,6 @@ const TypeDespacho = gql`
             tipo_factura: enum_tipo_factura!
             prendas: [inPrendaDespacho]!
             almacen: String!
-            estado_pago:enum_estado_pago!
         ): despacho 
     }
 `;
