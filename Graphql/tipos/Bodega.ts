@@ -6,7 +6,6 @@ const TypeBodega = gql`
         tipo: String!
         referencia: String!
         cantidades: Int!
-        valor_unitario: Float!
     }
 
     type Query {

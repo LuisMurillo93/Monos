@@ -4,7 +4,6 @@ interface Bodega{
     tipo: string,
     referencia: string,
     cantidades: number,
-    valor_unitario: number
 };
 
 
@@ -21,12 +20,7 @@ const bodegaSchema = new Schema<Bodega>({
         type: Number,
         required: true
     },
-    valor_unitario:{
-        type: Number,
-        required: true,
-    }
-
-})
+});
 
 const bodegaModel = model("Bodega", bodegaSchema, "bodega");
 
