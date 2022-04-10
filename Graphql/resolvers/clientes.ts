@@ -15,7 +15,12 @@ const resolverCliente = {
         BCliente: async (parent, args) => {
             const cliente = await clientesModel.findOne({
                 _id: args._id
-            }).populate('almacenes');
+            }).populate({
+                path: 'almacenes', 
+                populate: {
+                    path: 'despachos'
+                }
+            });
             return cliente;
         },
     },
