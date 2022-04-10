@@ -10,7 +10,7 @@ const resolverDespacho = {
                 populate: {
                     path: 'cliente'
                 }
-            }).populate('almacen');
+            });
             return despacho;            
         },
     },

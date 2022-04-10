@@ -4,7 +4,12 @@ import { clientesModel } from '../../models/clientes';
 const resolverCliente = {
     Query: {
         BClientes: async (parent, args) => {
-            const cliente = await clientesModel.find().populate('almacenes');
+            const cliente = await clientesModel.find().populate({
+                path: 'almacenes', 
+                populate: {
+                    path: 'despachos'
+                }
+            });
             return cliente;            
         },
         BCliente: async (parent, args) => {
